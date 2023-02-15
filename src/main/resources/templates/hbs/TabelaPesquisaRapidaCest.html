@@ -1,0 +1,32 @@
+<script id="tabela-pesquisa-rapida-cest"
+        type="text/x-handlebars-template">
+    <div class="tabela table-responsive mt-3">
+        <table class="table  table-hover">
+            <thead>
+            <tr>
+                <th class="text-center">Ncm</th>
+                <th class="text-center">Código</th>
+                <th class="text-center">Descrição</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {{#if .}}
+                {{#each .}}
+                    <tr data-id="{{id}}" data-codigo-ncm="{{codigoNcm}}" data-codigo="{{codigo}}" data-descricao="{{descricao}}"
+                        class="js-cest-pesquisa-rapida">
+                        <td class="text-center">{{codigoNcm}}</td>
+                        <td class="text-center">{{codigo}}</td>
+                        <td>{{descricao}}</td>
+                    </tr>
+                {{/each}}
+            {{else}}
+                <tr>
+                    <td colspan="4">Nenhum cest encontrado.</td>
+                </tr>
+            {{/if}}
+            </tbody>
+        </table>
+    </div>
+</script>
+

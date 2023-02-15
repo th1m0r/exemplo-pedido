@@ -1,0 +1,30 @@
+<script id="tabela-pesquisa-rapida-natureza-receita"
+        type="text/x-handlebars-template">
+    <div class="tabela table-responsive mt-3">
+        <table class="table  table-hover">
+            <thead>
+            <tr>
+                <th class="text-center">Código</th>
+                <th class="text-center">Descrição</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {{#if .}}
+                {{#each .}}
+                    <tr data-id="{{id}}" data-codigo="{{codigo}}" data-descricao="{{descricao}}"
+                        class="js-natureza-receita-pesquisa-rapida">
+                        <td class="text-center">{{codigo}}</td>
+                        <td>{{descricao}}</td>
+                    </tr>
+                {{/each}}
+            {{else}}
+                <tr>
+                    <td colspan="4">Nenhuma natureza da receita encontrada.</td>
+                </tr>
+            {{/if}}
+            </tbody>
+        </table>
+    </div>
+</script>
+

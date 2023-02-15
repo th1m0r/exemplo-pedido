@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:data="http://www.thymeleaf.org/extras/data"
+      layout:decorate="~{leiaute/LayoutPadrao}">
+
+<head>
+    <title>Empresas</title>
+</head>
+
+<body>
+<div layout:fragment="conteudo">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div>
+                    <h1>Cadastro de pedido</h1>
+                </div>
+                <div class="ml-auto">
+                    <div class="float-sm-right">
+                        <a class="btn btn-sm btn-primary" th:href="@{/pedidos}">
+                            <i class="fa fa-search"></i>
+                            <span>Pesquisar</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="container-fluid">
+            <!--/*@thymesVar id="pedido" type="br.com.pedido.model.Pedido"*/-->
+            <form th:action="${pedido.novo} ? @{/pedidos/novo} : @{/pedidos/{id}(id=${pedido.id})}"
+                  th:object="${pedido}" method="post">
+
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label class="control-label" for="cadastro-pedido-fornecedor">Fornecedor</label>
+                        <div class="input-group">
+                            <input id="cadastro-pedido-fornecedor"
+                                   class="form-control form-control-sm"
+                                   readonly/>
+                            <input id="cadastro-pedido-fornecedor-hidden"
+                                   type="hidden" th:field="*{fornecedor.id}">
+
+                            <span class="input-group-btn">
+                                <button class="btn  btn-sm  btn-default  js-tooltip"
+                                        id="btn-pesquisa-fornecedor" type="button" title="Pesquisar"
+                                        data-toggle="modal" data-target="#pesquisaRapidaFornecedor">
+                                    <i class="fa  fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group offset-2 col-sm-2">
+                        <label class="control-label" for="cadastro-pedido-data-cadastro">Data
+                            Cadastro</label>
+                        <input id="cadastro-pedido-data-cadastro" type="date"
+                               th:field="*{dataCadastro}"
+                               class="form-control form-control-sm" readonly="readonly"/>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+    <th:block th:replace="fornecedor/PesquisaRapidaFornecedor :: pesquisaRapidaFornecedor"></th:block>
+</div>
+
+<th:block layout:fragment="javascript-extra">
+    <script th:src="@{/plugins/handlebars/handlebars.min-v4.7.7.js}"></script>
+    <script th:src="@{/javascript/fornecedor.pesquisa-rapida.js}"></script>
+
+    <script>
+        $(function () {
+            $(document).on("fornecedor-selecionado", (event, fornecedor) => {
+                $("#cadastro-pedido-fornecedor").val(`${fornecedor.id} - ${fornecedor.razaoSocial}`);
+                $("#cadastro-pedido-fornecedor-hidden").val(fornecedor.id)
+            });
+        });
+    </script>
+</th:block>
+</body>
+</html>

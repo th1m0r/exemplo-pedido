@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>Dashboard</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" th:href="@{/plugins/fontawesome-free/css/all.min.css}">
+
+    <!-- Theme style -->
+    <link rel="stylesheet" th:href="@{/dist/css/adminlte.min.css}">
+
+    <!-- Bootstrap datepicker -->
+    <link rel="stylesheet" th:href="@{/plugins/bootstrap/css/bootstrap-datepicker.css}">
+
+    <!-- sweetalert2-theme-bootstrap-4 -->
+    <link rel="stylesheet" th:href="@{/plugins/sweetalert2/css/bootstrap-4.min.css}">
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm sidebar-collapse">
+
+
+<!--<input type="hidden" name="_csrf" th:value="${_csrf.token}"/>-->
+<!--<input type="hidden" name="_csrf_header" th:value="${_csrf.headerName}"/>-->
+
+<div id="root" class="wrapper">
+
+    <div th:replace="leiaute/fragments/BarraNavegacao :: navbar"></div>
+
+    <div th:replace="leiaute/fragments/MenuLateral :: layout-sidebar"></div>
+
+    <div class="content-wrapper js-content" style="min-height: 290px;" layout:fragment="conteudo"></div>
+
+    <div th:replace="leiaute/fragments/Footer :: layout-footer"></div>
+</div>
+
+
+<!-- jQuery -->
+<script th:src="@{/plugins/jquery/jquery.min.js}"></script>
+<script th:src="@{/plugins/jquery/jquery.masknumber.min.js}"></script>
+<script th:src="@{/plugins/jquery/jquery.mask.min.js}"></script>
+<script th:src="@{/plugins/jquery/jquery.maskMoney.min.js}"></script>
+
+<!-- Bootstrap 4 -->
+<script th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/plugins/bootstrap/js/bootstrap-datepicker.min.js}"></script>
+<script th:src="@{/plugins/bootstrap/js/bootstrap-datepicker.pt-BR.min.js}"></script>
+
+<!-- AdminLTE App -->
+<script th:src="@{/dist/js/adminlte.min.js}"></script>
+
+<!-- Sweetalert 2 -->
+<script th:src="@{/plugins/sweetalert2/js/sweetalert2.min.js}"></script>
+
+<!-- adamwdraper-numerals-js -->
+<script th:src="@{/plugins/numerals-js/numeral.min.js}"></script>
+<script th:src="@{/plugins/numerals-js/locales/pt-br.min.js}"></script>
+
+
+<!-- Aratu -->
+<script th:src="@{/javascript/aratu.js}"></script>
+<script th:src="@{/javascript/aratu.dialogo-excluir.js}"></script>
+
+<th:block layout:fragment="javascript-extra">
+</th:block>
+</body>
+</html>

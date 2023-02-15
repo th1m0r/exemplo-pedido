@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<aside class="main-sidebar sidebar-dark-primary elevation-4" th:fragment="layout-sidebar">
+    <a href="/" class="brand-link">
+        <img th:src="@{/images/logo-icone.svg}"
+             class="brand-image elevation-3 img-xg"
+             style="opacity: .9; border-radius: 20px;"/>
+        <span class="brand-text font-weight-light ml-2">Pedido APP</span>
+    </a>
+    <div class="sidebar">
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a th:href="@{/}" class="nav-link">
+                        <i class="nav-icon fa fa-tachometer-alt"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-shopping-basket"></i>
+                        <p>
+                            Pedido <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a th:href="@{/pedidos/novo}" class="nav-link">
+                                <i class="nav-icon fa fa-cart-plus ml-3"></i>
+                                <p>Novo</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+</aside>
+</body>
+</html>

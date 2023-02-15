@@ -1,0 +1,32 @@
+<script id="tabela-pesquisa-rapida-fornecedor"
+        type="text/x-handlebars-template">
+    <div class="tabela table-responsive mt-3">
+        <table class="table  table-hover">
+            <thead>
+            <tr>
+                <th class="text-center">ID</th>
+                <th class="text-center">Nome Fantasia</th>
+                <th class="text-center">Razao Social</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {{#if .}}
+                {{#each .}}
+                    <tr data-id="{{id}}" data-nome-fantasia="{{nomeFantasia}}" data-razao-social="{{razaoSocial}}"
+                        class="js-fornecedor-pesquisa-rapida">
+                        <td class="text-center">{{id}}</td>
+                        <td class="text-center">{{nomeFantasia}}</td>
+                        <td>{{razaoSocial}}</td>
+                    </tr>
+                {{/each}}
+            {{else}}
+                <tr>
+                    <td colspan="3">Nenhum fornecedor encontrado.</td>
+                </tr>
+            {{/if}}
+            </tbody>
+        </table>
+    </div>
+</script>
+

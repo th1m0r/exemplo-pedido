@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div class="modal  fade" id="pesquisaRapidaNaturezaReceita" tabindex="-1" role="dialog" th:fragment="pesquisaRapidaNaturezaReceita">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Pesquisa natureza da receita</h5>
+                <button type="button" class="close" data-dismiss="modal"><i>&times;</i></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="alert  alert-danger  alert-dismissible  d-none  js-mensagem-erro" role="alert">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <div><i class="fa  fa-exclamation-circle"></i>Informe pelo menos 2 números</div>
+                </div>
+
+                <form class="form" th:action="@{/naturezareceitas/pesquisar}">
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <input id="naturezaReceitaDescricao" type="text" class="form-control form-control-sm"
+                                   autofocus="autofocus" autocomplete="off"
+                                   placeholder="Digite a descrição"/>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <button type="submit" class="btn btn-sm btn-primary  js-pesquisa-rapida-natureza-receita-btn">Pesquisar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <div id="containerTabelaPesquisaRapidaNaturezaReceita">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="hbs/TabelaPesquisaRapidaNaturezaReceita"></th:block>
+</div>
+
+</html>
